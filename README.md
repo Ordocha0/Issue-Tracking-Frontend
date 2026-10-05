@@ -454,8 +454,3 @@ The user object (name, role, id, avatar) is read in ~10 places (header, dropdown
 - E2E tests with Playwright covering login → create issue → comment flow
 
 
----
-
-## 📞 Support
-
-For questions about the API contract, see the backend repository's README. For UI/UX questions, ping the frontend lead.
