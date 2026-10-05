@@ -136,12 +136,12 @@ const SignUp = () => {
 
           {error && <p className={style.errorText}>{error}</p>}
 
-          <label
+          {/* <label
             className={style.forgotPassword}
             onClick={() => navigate("/forgotpassword")}
           >
             Forgotten Password?
-          </label>
+          </label> */}
         </form>
 
         <p className={style.disclaimer}>

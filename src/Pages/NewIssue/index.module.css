@@ -1,43 +1,129 @@
-/* ===== Page ===== */
+/* ============================================================
+   Page wrapper
+   ============================================================ */
 .page {
   min-height: 100vh;
   background: #f8fafc;
-  padding: 32px;
+  padding: 24px;
   font-family: 'Poppins', system-ui, -apple-system, sans-serif;
   color: #0f172a;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 }
 
-/* ===== Card ===== */
-.card {
-  width: 100%;
-  max-width: 720px;
-  background: #ffffff;
-  border: 1px solid #f1f5f9;
-  border-radius: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 8px 24px -12px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  margin-top: 24px;
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 100px; /* room for sticky footer */
 }
 
-/* ===== Header ===== */
-.header {
+/* ============================================================
+   Top bar
+   ============================================================ */
+.topBar {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  padding: 8px 4px 16px;
+}
+
+.backBtn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.backBtn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.topHint {
+  font-size: 12px;
+  color: #94a3b8;
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .topHint { display: inline-block; }
+}
+
+.topHint kbd {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 1px 5px;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  color: #475569;
+}
+
+/* ============================================================
+   Layout: 2 columns on desktop
+   ============================================================ */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
-  padding: 24px 28px;
-  border-bottom: 1px solid #f1f5f9;
+  position: sticky;
+  top: 20px;
+}
+
+/* ============================================================
+   Card
+   ============================================================ */
+.card {
+  background: #ffffff;
+  border: 1px solid #e9eef4;
+  border-radius: 16px;
+  box-shadow:
+    0 1px 3px rgba(15, 23, 42, 0.03),
+    0 8px 24px -12px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.cardHeader {
+  padding: 24px 28px 8px;
+}
+
+.cardBody {
+  padding: 16px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   color: #0f172a;
-  margin: 0 0 4px 0;
+  margin: 0 0 6px;
   letter-spacing: -0.02em;
 }
 
@@ -47,49 +133,49 @@
   margin: 0;
 }
 
-.cancelBtn {
-  background: transparent;
-  color: #64748b;
-  border: none;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 8px;
-  transition: background 0.15s, color 0.15s;
-}
-
-.cancelBtn:hover {
-  background: #f1f5f9;
-  color: #0f172a;
-}
-
-/* ===== Form ===== */
-.form {
-  padding: 24px 28px 28px 28px;
+/* ============================================================
+   Fields
+   ============================================================ */
+.field {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  position: relative;
 }
 
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.inputGroup label {
+.field label {
   font-size: 13px;
   font-weight: 600;
   color: #1e293b;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
-.inputGroup input,
-.inputGroup textarea,
-.inputGroup select {
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.labelRow label {
+  margin-bottom: 0;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+.counter {
+  font-size: 11px;
+  color: #94a3b8;
+  font-variant-numeric: tabular-nums;
+}
+
+.field input[type="text"],
+.field textarea,
+.field select {
   width: 100%;
-  padding: 11px 14px;
+  padding: 12px 14px;
   border: 1.5px solid #e2e8f0;
   border-radius: 10px;
   font-size: 14px;
@@ -101,25 +187,25 @@
   outline: none;
 }
 
-.inputGroup textarea {
+.field textarea {
   resize: vertical;
-  min-height: 110px;
-  line-height: 1.5;
+  min-height: 160px;
+  line-height: 1.55;
 }
 
-.inputGroup input::placeholder,
-.inputGroup textarea::placeholder {
+.field input::placeholder,
+.field textarea::placeholder {
   color: #94a3b8;
 }
 
-.inputGroup input:focus,
-.inputGroup textarea:focus,
-.inputGroup select:focus {
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
   border-color: #2196F3;
   box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
 }
 
-.inputGroup select {
+.field select {
   cursor: pointer;
   appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");
@@ -129,46 +215,327 @@
   padding-right: 38px;
 }
 
-/* ===== Row (side-by-side fields) ===== */
-.row {
-  display: flex;
-  gap: 16px;
+.inputError {
+  border-color: #ef4444 !important;
 }
 
-@media (max-width: 560px) {
-  .row {
-    flex-direction: column;
-    gap: 18px;
-  }
+.inputError:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12) !important;
 }
 
-/* ===== Helper text ===== */
+.fieldError {
+  color: #b91c1c;
+  font-size: 12px;
+  margin: 6px 0 0;
+}
+
 .helperText {
   font-size: 12px;
   color: #94a3b8;
-  margin: 6px 0 0 0;
+  margin: 6px 0 0;
 }
 
-/* ===== Error ===== */
-.errorText {
-  color: #b91c1c;
+/* ============================================================
+   Priority pills
+   ============================================================ */
+.pillRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  position: relative;
+  min-height: 68px;
+}
+
+.pill:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.pillDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  display: inline-block;
+}
+
+.pillLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.pillHint {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.pillLow {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+.pillLow .pillDot { background: #22c55e; }
+
+.pillMedium {
+  border-color: #eab308;
+  background: #fefce8;
+}
+.pillMedium .pillDot { background: #eab308; }
+
+.pillHigh {
+  border-color: #ef4444;
   background: #fef2f2;
-  border: 1px solid #fee2e2;
+}
+.pillHigh .pillDot { background: #ef4444; }
+
+/* ============================================================
+   Assignee picker
+   ============================================================ */
+.pickerTrigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
   padding: 10px 14px;
+  border: 1.5px dashed #cbd5e1;
   border-radius: 10px;
+  background: #f8fafc;
+  cursor: pointer;
+  font-family: inherit;
   font-size: 13px;
-  margin: 0;
-  text-align: center;
+  color: #64748b;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
 }
 
-/* ===== Actions ===== */
+.pickerTrigger:hover:not(:disabled) {
+  border-color: #2196F3;
+  background: #eff6ff;
+  color: #0f172a;
+}
+
+.pickerTrigger:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.chevron {
+  margin-left: auto;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.avatar,
+.avatarPlaceholder {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2196F3, #0f172a);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.avatarPlaceholder {
+  background: #e2e8f0;
+  color: #94a3b8;
+}
+
+.selectedUser {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.selectedUserMeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.selectedUserName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.selectedUserRole {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clearUser {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.clearUser:hover {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+/* ============================================================
+   Portal dropdown (escapes the card's overflow: hidden)
+   ============================================================ */
+.pickerPortal {
+  position: fixed;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px -8px rgba(15, 23, 42, 0.18);
+  z-index: 9999;
+  overflow: hidden;
+  animation: pickerFade 0.12s ease-out;
+  box-sizing: border-box;
+}
+
+@keyframes pickerFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.pickerSearch {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #f1f5f9;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.pickerList {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.pickerItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.1s;
+}
+
+.pickerItem:hover {
+  background: #f1f5f9;
+}
+
+.pickerItemMeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pickerItemName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pickerItemRole {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pickerEmpty {
+  font-size: 13px;
+  color: #94a3b8;
+  text-align: center;
+  padding: 18px;
+  margin: 0;
+}
+
+/* ============================================================
+   Sticky footer
+   ============================================================ */
+.footerBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-top: 1px solid #e9eef4;
+  z-index: 20;
+}
+
+.footerInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 720px) {
+  .footerInner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 .actions {
   display: flex;
-  justify-content: flex-end;
   gap: 12px;
-  margin-top: 8px;
+  justify-content: flex-end;
 }
 
+/* ============================================================
+   Buttons
+   ============================================================ */
 .primaryBtn {
   background: #0f172a;
   color: #ffffff;
@@ -182,7 +549,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 130px;
+  min-width: 150px;
+  font-family: inherit;
 }
 
 .primaryBtn:hover:not(:disabled) {
@@ -191,7 +559,7 @@
 }
 
 .primaryBtn:disabled {
-  opacity: 0.75;
+  opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
@@ -206,6 +574,7 @@
   font-size: 14px;
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
+  font-family: inherit;
 }
 
 .secondaryBtn:hover:not(:disabled) {
@@ -216,4 +585,19 @@
 .secondaryBtn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* ============================================================
+   Error banner
+   ============================================================ */
+.errorText {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin: 0;
+  text-align: center;
+  flex: 1;
 }

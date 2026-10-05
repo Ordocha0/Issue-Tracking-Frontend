@@ -16,7 +16,7 @@ import { LoginContext } from "../../loginContext";
 const NAV_ITEMS = [
   { to: "/admin/dashboard", label: "Dashboard", icon: MdDashboard },
   { to: "/issues",    label: "Issues",    icon: MdAssignment },
-  { to: "/staff",     label: "Staff",     icon: MdPeople },
+  // { to: "/staff",     label: "Staff",     icon: MdPeople },
 ];
 
 const Header = () => {
