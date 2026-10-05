@@ -1,0 +1,21 @@
+.layout
+{
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+}
+
+.container
+{
+  /* height: 83vh; */
+  /* max-height: 80vh; */
+  overflow-y: auto;
+}
+
+.content
+{
+    height: 88vh;
+  overflow-y: auto;
+}

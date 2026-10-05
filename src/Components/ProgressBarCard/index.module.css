@@ -1,0 +1,71 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); */
+  /* border: 1px solid #e5e7eb; */
+  width: 100%;
+  /* max-width: 400px; */
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1rem;
+}
+
+.percentage {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1rem;
+}
+
+/* Multi-segment bar layout */
+.barTrack {
+  display: flex; /* Aligns the internal segments horizontally side-by-side */
+  width: 100%;
+  height: 10px;
+  background-color: #f3f4f6; /* Empty track color fallback */
+  border-radius: 6px;
+  overflow: hidden; /* Clips the segments to keep rounded corners on the ends */
+  margin: 4px 0;
+}
+
+.barSegment {
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Your exact background requests */
+.bgPaid {
+  background-color: #28a745; /* Green */
+}
+
+.bgPending {
+  background-color: #ffc107; /* Yellow */
+}
+
+.bgOverdue {
+  background-color: #dc3545; /* Red */
+}
+
+.totalTitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.totalValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}

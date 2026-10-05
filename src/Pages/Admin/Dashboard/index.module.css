@@ -1,0 +1,331 @@
+/* ===== Page ===== */
+.dashboard {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 32px;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+  box-sizing: border-box;
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 14px;
+  margin: 0;
+}
+
+.newIssueBtn {
+  background: #0f172a;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.newIssueBtn:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+
+/* ===== KPI Cards ===== */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kpiCard {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.kpiLabel {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+}
+
+.kpiValue {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.kpi-blue   { background: #eff6ff; color: #1d4ed8; }
+.kpi-amber  { background: #fffbeb; color: #b45309; }
+.kpi-purple { background: #f5f3ff; color: #6d28d9; }
+
+/* ===== Charts ===== */
+.chartGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.cardHeader {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.cardBody {
+  padding: 20px;
+}
+
+.emptyChart {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.emptyText {
+  color: #64748b;
+  font-size: 14px;
+  text-align: center;
+  padding: 24px 0;
+  margin: 0;
+}
+
+/* ===== Assigned-to-me list ===== */
+.issueList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.issueItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.issueItem:last-child {
+  border-bottom: none;
+}
+
+.issueInfo {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.issueTitle {
+  font-weight: 500;
+  font-size: 14px;
+  color: #0f172a;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.issueTitle:hover {
+  color: #2563eb;
+}
+
+.issueDate {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.issueBadges {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ===== Badges ===== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.priority-low    { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+.priority-medium { background: #fefce8; color: #a16207; border-color: #fde68a; }
+.priority-high   { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+
+.status-open        { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.status-in-progress { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+.status-resolved    { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.status-closed      { background: #f1f5f9; color: #475569; border-color: #e2e8f0; }
+
+/* ===== Loading skeletons ===== */
+.skeletonKpi {
+  height: 110px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonChart {
+  height: 340px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ===== Error ===== */
+.errorBox {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 24px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.retryBtn {
+  margin-top: 12px;
+  background: #b91c1c;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.retryBtn:hover {
+  background: #991b1b;
+}
+
+/* ===== Loading skeletons ===== */
+.skeletonKpi {
+  height: 110px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonChart {
+  height: 340px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ===== Empty states ===== */
+.emptyChart {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.emptyText {
+  color: #64748b;
+  font-size: 14px;
+  text-align: center;
+  padding: 24px 0;
+  margin: 0;
+}
+
+/* ===== Error state ===== */
+.errorBox {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 24px;
+  border-radius: 14px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.retryBtn {
+  margin-top: 12px;
+  background: #b91c1c;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.retryBtn:hover {
+  background: #991b1b;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .dashboard { padding: 20px 16px; }
+  .title { font-size: 22px; }
+  .chartGrid { grid-template-columns: 1fr; }
+  .issueItem { flex-direction: column; align-items: flex-start; }
+}

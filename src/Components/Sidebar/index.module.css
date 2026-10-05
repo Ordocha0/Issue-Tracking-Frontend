@@ -1,0 +1,92 @@
+.container
+{
+  width: 15vw;
+  max-width: 20vw;
+  height: 100vh;
+    background-color: #FAFAFA;
+      overflow-y: auto;
+}
+
+.header
+{
+
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 0px;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.logo
+{
+  width: 40px;
+  height: 40px;
+}
+
+.header
+{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+}
+
+.header h1
+{
+  font-family: Poppins;
+font-weight: 600;
+font-style: SemiBold;
+font-size: 20px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+color: #253745;
+}
+
+.sidebar
+{
+  padding: 20px;
+  margin-left: 10px;
+}
+
+.sidebar h1
+{
+  font-family: Poppins;
+font-weight: 600;
+font-style: SemiBold;
+font-size: 12px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+vertical-align: middle;
+color: #253745;
+margin-bottom: 20px;
+}
+
+.sidebar a
+{
+font-family: Inter;
+font-weight: 500;
+font-style: Medium;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+vertical-align: middle;
+color: #727986;
+margin-bottom: 30px;
+display: flex;
+gap: 10px;
+cursor: pointer;
+margin-left: 10px;
+text-decoration: none;
+}
+
+.icon
+{
+  width: 20px;
+  height: 20px;
+}
+
